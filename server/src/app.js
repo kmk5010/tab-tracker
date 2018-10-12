@@ -15,3 +15,9 @@ app.get('/status', (req, res) => {
         message: 'hello world fuck you!'
     })
 })
+
+app.post('/register', (req, res) => {
+    res.send({
+        message: `hello ${req.body.email} Your user was accepted, have fun please`
+    })
+})
