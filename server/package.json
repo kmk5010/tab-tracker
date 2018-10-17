@@ -11,11 +11,22 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/bcrypt-nodejs": "0.0.30",
+    "@types/jsonwebtoken": "^7.2.8",
+    "@types/morgan": "^1.7.35",
+    "@types/sequelize": "^4.27.28",
+    "bcrypt-nodejs": "0.0.3",
+    "bluebird": "^3.5.2",
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
     "express": "^4.16.4",
+    "joi": "^13.7.0",
+    "joy": "^0.1.1",
+    "jsonwebtoken": "^8.3.0",
     "morgan": "^1.9.1",
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.18.4",
+    "sequelize": "^4.39.0",
+    "sqlite3": "^4.0.2"
   },
   "devDependencies": {
     "eslint": "^5.6.1",
