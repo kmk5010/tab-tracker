@@ -10,7 +10,7 @@
                 <v-text-field label="Youtube ID" v-model="song.youtubeId" required :rules="[rules.required]"></v-text-field>
             </panel>
             <v-alert class="mt-4" :value="error" transition="scale-transition" error>{{error}}</v-alert>
-            <v-btn block color="cyan" dark @click="create" class="mt-4">Create Song</v-btn>
+            <v-btn block color="cyan" dark @click="save" class="mt-4">Save Song</v-btn>
     </v-flex>
     <v-flex xs8 class="ml-4">
         <panel title="Song Structure">
@@ -43,7 +43,7 @@ export default {
     }
   },
   methods: {
-    async create () {
+    async save () {
       this.error = null
       const areAllFieldsFilledIn = Object
         .keys(this.song)
@@ -52,14 +52,26 @@ export default {
         this.error = 'Please fill in all the required fields.'
         return
       }
+      const songId = this.$store.state.route.params.songId
       try {
-        await SongService.post(this.song)
+        await SongService.put(this.song)
         this.$router.push({
-          name: 'songs'
+          name: 'song',
+          params: {
+            songId: songId
+          }
         })
       } catch (err) {
         console.log(err)
       }
+    }
+  },
+  async mounted () {
+    try {
+      const songId = this.$store.state.route.params.songId
+      this.song = (await SongService.show(songId)).data
+    } catch (err) {
+      console.log(err)
     }
   }
 }

@@ -1,6 +1,5 @@
 <template>
   <div>
-    <v-layout>
         <panel title="Song Metadata">
           <v-layout>
             <v-flex xs6>
@@ -13,6 +12,7 @@
               <div class="song-genre">
                 {{song.genre}}
               </div>
+              <v-btn block color="cyan" dark @click="nagivateTo({name: 'song-edit', params: {songId: song.id}})">Edit</v-btn>
             </v-flex>
             <v-flex xs6>
               <img class="album-image" :src="song.albumImageUrl" />
@@ -21,18 +21,18 @@
             </v-flex>
           </v-layout>
         </panel>
-    </v-layout>
   </div>
 </template>
 
 <script>
-import Panel from '@/components/Panel'
 export default {
   props: [
     'song'
   ],
-  components: {
-    Panel
+  methods: {
+    nagivateTo (route) {
+      this.$router.push(route)
+    }
   }
 }
 </script>

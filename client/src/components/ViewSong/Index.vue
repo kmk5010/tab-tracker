@@ -21,7 +21,6 @@
 
 <script>
 import SongService from '@/services/SongService'
-import Panel from '@/components/Panel'
 import SongMetadata from './SongMetadata'
 import youtube from './Youtube'
 import Lyrics from './Lyrics'
@@ -37,7 +36,6 @@ export default {
     }
   },
   components: {
-    Panel,
     SongMetadata,
     youtube,
     Lyrics,
